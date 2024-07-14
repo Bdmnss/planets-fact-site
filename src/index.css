@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=League+Spartan:wght@100..900&display=swap");
 
 * {
   margin: 0;
@@ -10,4 +11,8 @@
 
 html {
   font-size: 62.5%;
+}
+
+body {
+  font-family: "League Spartan", sans-serif;
 }
