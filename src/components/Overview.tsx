@@ -53,7 +53,7 @@ const Overview: React.FC<OverviewProps> = ({
           src={planet.images.planet}
           alt="planet image"
           style={
-            screenWidth >= 1024
+            screenWidth > 1024
               ? {
                   width: planet.planetSize.desktop.width,
                   height: planet.planetSize.desktop.height,

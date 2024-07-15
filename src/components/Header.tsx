@@ -41,20 +41,23 @@ const Header: React.FC<THeader> = ({
               {data.map((planet, index) => (
                 <li
                   style={
-                    screenWidth >= 1024
+                    screenWidth > 1024
                       ? {
                           borderTop:
                             active === planet.name
                               ? `4px solid ${planet.buttonColor}`
                               : "",
+                          marginBottom: active === planet.name ? `4px` : "",
                         }
                       : undefined
                   }
                   key={index}
-                  className="pt-[2.6rem]"
+                  className="lg:pt-[2.6rem]"
                   onClick={() => setActive(planet.name)}
                 >
-                  <Link to={`/${planet.name}`}>{planet.name}</Link>
+                  <Link to={`/${planet.name}`} className="lg:py-[3rem]">
+                    {planet.name}
+                  </Link>
                 </li>
               ))}
             </div>

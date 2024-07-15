@@ -92,7 +92,7 @@ const Surface: React.FC<SurfaceProps> = ({
           src={planet.images.geology}
           alt="geology image"
           style={
-            screenWidth >= 1024
+            screenWidth > 1024
               ? {
                   width: planet.geologySize.desktop.width,
                   height: planet.geologySize.desktop.height,
