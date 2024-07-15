@@ -30,15 +30,15 @@ interface StructureProps {
   planet: PlanetData;
   activeOption: string;
   handleActiveOption: (option: string) => void;
+  screenWidth: number;
 }
 
 const Structure: React.FC<StructureProps> = ({
   planet,
   activeOption,
   handleActiveOption,
+  screenWidth,
 }) => {
-  const screenWidth = screen.width;
-
   return (
     <div className="flex flex-col justify-center items-center px-[2.4rem] sm:px-[3.9rem]">
       <img

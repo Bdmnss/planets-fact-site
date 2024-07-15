@@ -41,15 +41,15 @@ interface SurfaceProps {
   planet: PlanetData;
   activeOption: string;
   handleActiveOption: (option: string) => void;
+  screenWidth: number;
 }
 
 const Surface: React.FC<SurfaceProps> = ({
   planet,
   activeOption,
   handleActiveOption,
+  screenWidth,
 }) => {
-  const screenWidth = screen.width;
-
   return (
     <div className="flex flex-col justify-center items-center px-[2.4rem] relative sm:px-[3.9rem]">
       <img

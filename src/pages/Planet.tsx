@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../data.json";
 import Overview from "../components/Overview";
@@ -22,6 +22,30 @@ const Planet: React.FC<PlanetProps> = ({ openBurger }) => {
     setActiveOption(option);
   };
 
+  const useWindowSize = () => {
+    const [windowSize, setWindowsSize] = useState({
+      screenWidth: 1248,
+      screenHeight: 0,
+    });
+
+    useEffect(() => {
+      function handleResize() {
+        setWindowsSize({
+          screenWidth: window.innerWidth,
+          screenHeight: window.innerHeight,
+        });
+      }
+      window.addEventListener("resize", handleResize);
+
+      handleResize();
+
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    return windowSize;
+  };
+
+  const screenWidth = useWindowSize().screenWidth;
+
   return (
     <div className={`${openBurger ? "hidden" : "block"} pb-[5rem]`}>
       <PlanetTabs
@@ -35,18 +59,21 @@ const Planet: React.FC<PlanetProps> = ({ openBurger }) => {
           planet={planet}
           activeOption={activeOption}
           handleActiveOption={handleActiveOption}
+          screenWidth={screenWidth}
         />
       ) : activeOption === "structure" && planet ? (
         <Structure
           planet={planet}
           activeOption={activeOption}
           handleActiveOption={handleActiveOption}
+          screenWidth={screenWidth}
         />
       ) : activeOption === "surface" && planet ? (
         <Surface
           planet={planet}
           activeOption={activeOption}
           handleActiveOption={handleActiveOption}
+          screenWidth={screenWidth}
         />
       ) : (
         ""

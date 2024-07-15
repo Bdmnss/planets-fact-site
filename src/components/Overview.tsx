@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import source from "/assets/icon-source.svg";
 
 interface PlanetData {
@@ -31,37 +30,15 @@ interface OverviewProps {
   planet: PlanetData;
   activeOption: string;
   handleActiveOption: (option: string) => void;
+  screenWidth: number;
 }
 
 const Overview: React.FC<OverviewProps> = ({
   planet,
   activeOption,
   handleActiveOption,
+  screenWidth,
 }) => {
-  const useWindowSize = () => {
-    const [windowSize, setWindowsSize] = useState({
-      screenWidth: 1248,
-      screenHeight: 0,
-    });
-
-    useEffect(() => {
-      function handleResize() {
-        setWindowsSize({
-          screenWidth: window.innerWidth,
-          screenHeight: window.innerHeight,
-        });
-      }
-      window.addEventListener("resize", handleResize);
-
-      handleResize();
-
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-    return windowSize;
-  };
-
-  const screenWidth = useWindowSize().screenWidth;
-
   return (
     <div className="flex flex-col justify-center items-center px-[2.4rem] sm:px-[3.9rem]">
       <img
