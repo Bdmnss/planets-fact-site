@@ -12,6 +12,10 @@ export default {
       screens: {
         mini: "0px",
       },
+      animation: {
+        from: { left: "500px" },
+        to: { left: "5000px" },
+      },
     },
   },
   plugins: [],
