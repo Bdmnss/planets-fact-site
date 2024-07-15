@@ -4,6 +4,7 @@ import data from "../data.json";
 import Overview from "../components/Overview";
 import Structure from "../components/Structure";
 import Surface from "../components/Surface";
+import PlanetTabs from "../components/PlanetTabs";
 
 interface PlanetProps {
   openBurger: boolean;
@@ -22,86 +23,90 @@ const Planet: React.FC<PlanetProps> = ({ openBurger }) => {
   };
 
   return (
-    <div className={`${openBurger ? "hidden" : "block"}`}>
-      <div className="flex justify-evenly text-[#838391] text-[0.9rem] font-bold tracking-[1.93px] border-b-[1px] pt-[2rem] border-[#38384F]">
-        <p
-          onClick={() => handleActiveOption("overview")}
-          style={
-            activeOption === "overview"
-              ? {
-                  borderBottom: `4px solid ${planet?.buttonColor}`,
-                  paddingBottom: "2rem",
-                  color: "white",
-                }
-              : undefined
-          }
-        >
-          OVERVIEW
-        </p>
-        <p
-          onClick={() => handleActiveOption("structure")}
-          style={
-            activeOption === "structure"
-              ? {
-                  borderBottom: `4px solid ${planet?.buttonColor}`,
-                  paddingBottom: "2rem",
-                  color: "white",
-                }
-              : undefined
-          }
-        >
-          STRUCTURE
-        </p>
-        <p
-          onClick={() => handleActiveOption("surface")}
-          style={
-            activeOption === "surface"
-              ? {
-                  borderBottom: `4px solid ${planet?.buttonColor}`,
-                  paddingBottom: "2rem",
-                  color: "white",
-                }
-              : undefined
-          }
-        >
-          SURFACE
-        </p>
-      </div>
+    <div className={`${openBurger ? "hidden" : "block"} pb-[5rem]`}>
+      <PlanetTabs
+        activeOption={activeOption}
+        handleActiveOption={handleActiveOption}
+        planetColor={planet?.buttonColor}
+      />
 
       {activeOption === "overview" && planet ? (
-        <Overview planet={planet} />
+        <Overview
+          planet={planet}
+          activeOption={activeOption}
+          handleActiveOption={handleActiveOption}
+        />
       ) : activeOption === "structure" && planet ? (
-        <Structure planet={planet} />
+        <Structure
+          planet={planet}
+          activeOption={activeOption}
+          handleActiveOption={handleActiveOption}
+        />
       ) : activeOption === "surface" && planet ? (
-        <Surface planet={planet} />
+        <Surface
+          planet={planet}
+          activeOption={activeOption}
+          handleActiveOption={handleActiveOption}
+        />
       ) : (
         ""
       )}
-      <div className="flex flex-col px-[2.4rem] gap-[8px]">
-        <div className="flex items-center justify-between border border-[#38384F] px-[2.4rem] py-[0.8rem]">
-          <p className="text-[1rem] text-[#838391]">ROTATION TIME</p>
-          <p className="text-[2rem] text-white font-medium font-antonio tracking-[-0.75px]">
+
+      <div className="flex flex-col px-[2.4rem] gap-[8px] sm:flex-row sm:justify-evenly">
+        <div
+          className="flex items-center justify-between border border-[#38384F] px-[2.4rem] 
+        py-[0.8rem] sm:flex-col sm:items-start sm:px-[1.5rem] sm:w-[25%] sm:py-[1.5rem]"
+        >
+          <p className="text-[1rem] text-[#838391] sm:mb-[6px] sm:text-[1.3rem]">
+            ROTATION TIME
+          </p>
+          <p
+            className="text-[1.8rem] text-white font-medium font-antonio tracking-[-0.75px]
+          md:text-[2.2rem]"
+          >
             {planet?.rotation.toUpperCase()}
           </p>
         </div>
 
-        <div className="flex items-center justify-between border border-[#38384F] px-[2.4rem] py-[0.8rem]">
-          <p className="text-[1rem] text-[#838391]">REVOLUTION TIME</p>
-          <p className="text-[2rem] text-white font-medium font-antonio tracking-[-0.75px]">
+        <div
+          className="flex items-center justify-between border border-[#38384F] px-[2.4rem] 
+        py-[0.8rem] sm:flex-col sm:items-start sm:px-[1.5rem] sm:w-[25%] sm:py-[1.5rem]"
+        >
+          <p className="text-[1rem] text-[#838391] sm:text-[1.3rem]">
+            REVOLUTION TIME
+          </p>
+          <p
+            className="text-[1.8rem] text-white font-medium font-antonio tracking-[-0.75px] 
+          md:text-[2.2rem]"
+          >
             {planet?.revolution.toUpperCase()}
           </p>
         </div>
 
-        <div className="flex items-center justify-between border border-[#38384F] px-[2.4rem] py-[0.8rem]">
-          <p className="text-[1rem] text-[#838391]">RADIUS</p>
-          <p className="text-[2rem] text-white font-medium font-antonio tracking-[-0.75px]">
+        <div
+          className="flex items-center justify-between border border-[#38384F] px-[2.4rem] 
+        py-[0.8rem] sm:flex-col sm:items-start sm:px-[1.5rem] sm:w-[25%] sm:py-[1.5rem]"
+        >
+          <p className="text-[1rem] text-[#838391] sm:text-[1.3rem]">RADIUS</p>
+          <p
+            className="text-[1.8rem] text-white font-medium font-antonio tracking-[-0.75px] 
+          md:text-[2.2rem]"
+          >
             {planet?.radius.toUpperCase()}
           </p>
         </div>
 
-        <div className="flex items-center justify-between border border-[#38384F] px-[2.4rem] py-[0.8rem]">
-          <p className="text-[1rem] text-[#838391]">AVERAGE TEMP</p>
-          <p className="text-[2rem] text-white font-medium font-antonio tracking-[-0.75px]">
+        <div
+          className="flex items-center justify-between border border-[#38384F] px-[2.4rem] 
+        py-[0.8rem] sm:flex-col sm:items-start sm:px-[1.5rem] sm:w-[25%] sm:py-[1.5rem]"
+        >
+          <p className="text-[1rem] text-[#838391] sm:text-[1.3rem]">
+            AVERAGE TEMP
+          </p>
+          <p
+            className="text-[1.8rem] text-white font-medium font-antonio tracking-[-0.75px] 
+          md:text-[2.2rem]"
+          >
             {planet?.temperature.toUpperCase()}
           </p>
         </div>

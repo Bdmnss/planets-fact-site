@@ -9,6 +9,9 @@ export default {
       fontFamily: {
         antonio: ["Antonio", "sans-serif"],
       },
+      screens: {
+        mini: "0px",
+      },
     },
   },
   plugins: [],
