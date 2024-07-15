@@ -11,7 +11,7 @@ const Header: React.FC<THeader> = ({ openBurger, setOpenBurger }) => {
     <header>
       <div
         className="flex justify-between items-center py-[1.6rem] px-[2.4rem] border-b-[1px]
-        border-[#38384F] sm:justify-center sm:flex-col md:flex-row md:justify-between"
+        border-[#38384F] sm:justify-center sm:flex-col lg:flex-row lg:justify-between"
       >
         <div className="flex flex-col items-center ">
           <h1
@@ -25,7 +25,7 @@ const Header: React.FC<THeader> = ({ openBurger, setOpenBurger }) => {
           <ul className="mini:hidden sm:block">
             <div
               className="flex items-center text-[#838391] text-[1.5rem] font-bold gap-[3.3rem] 
-              mt-[3.9rem] md:mt-[0] xl:text-[1.8rem]"
+              mt-[3.9rem] lg:mt-[0] xl:text-[1.8rem]"
             >
               {data.map((planet, index) => (
                 <li key={index}>
