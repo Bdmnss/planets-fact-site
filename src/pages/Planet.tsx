@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../data.json";
-import Overview from "../components/Overview";
-import Structure from "../components/Structure";
-import Surface from "../components/Surface";
 import PlanetTabs from "../components/PlanetTabs";
 import PlanetStats from "../components/PlanetStats";
+import PlanetMainInfo from "../components/PlanetMainInfo";
 
 interface PlanetProps {
   openBurger: boolean;
@@ -18,9 +16,11 @@ const Planet: React.FC<PlanetProps> = ({ openBurger, screenWidth }) => {
 
   const planet = data.find((planetObj) => planetObj.name === planetName);
 
-  const [activeOption, setActiveOption] = useState("overview");
+  const [activeOption, setActiveOption] = useState<
+    "overview" | "geology" | "structure"
+  >("overview");
 
-  const handleActiveOption = (option: string) => {
+  const handleActiveOption = (option: "overview" | "geology" | "structure") => {
     setActiveOption(option);
   };
 
@@ -32,29 +32,13 @@ const Planet: React.FC<PlanetProps> = ({ openBurger, screenWidth }) => {
         planetColor={planet?.buttonColor}
       />
 
-      {activeOption === "overview" && planet ? (
-        <Overview
+      {planet && (
+        <PlanetMainInfo
           planet={planet}
           activeOption={activeOption}
           handleActiveOption={handleActiveOption}
           screenWidth={screenWidth}
         />
-      ) : activeOption === "structure" && planet ? (
-        <Structure
-          planet={planet}
-          activeOption={activeOption}
-          handleActiveOption={handleActiveOption}
-          screenWidth={screenWidth}
-        />
-      ) : activeOption === "surface" && planet ? (
-        <Surface
-          planet={planet}
-          activeOption={activeOption}
-          handleActiveOption={handleActiveOption}
-          screenWidth={screenWidth}
-        />
-      ) : (
-        ""
       )}
 
       <PlanetStats planet={planet} />

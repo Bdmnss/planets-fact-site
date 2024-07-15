@@ -1,8 +1,8 @@
 import React from "react";
 
 interface PlanetTabsProps {
-  activeOption: string;
-  handleActiveOption: (option: string) => void;
+  activeOption: "overview" | "geology" | "structure";
+  handleActiveOption: (option: "overview" | "geology" | "structure") => void;
   planetColor?: string;
 }
 
@@ -42,9 +42,9 @@ const PlanetTabs: React.FC<PlanetTabsProps> = ({
         STRUCTURE
       </p>
       <p
-        onClick={() => handleActiveOption("surface")}
+        onClick={() => handleActiveOption("geology")}
         style={
-          activeOption === "surface"
+          activeOption === "geology"
             ? {
                 borderBottom: `4px solid ${planetColor}`,
                 paddingBottom: "2rem",

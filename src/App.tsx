@@ -41,7 +41,7 @@ function App() {
       <BurgerMenu openBurger={openBurger} setOpenBurger={setOpenBurger} />
 
       <Routes>
-        <Route path="/" element={<Navigate to={"/Mercury"} />}></Route>
+        <Route path="/" element={<Navigate to={"/Mercury"} />} />
         <Route
           path="/:planet"
           element={<Planet openBurger={openBurger} screenWidth={screenWidth} />}

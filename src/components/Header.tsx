@@ -46,7 +46,10 @@ const Header: React.FC<THeader> = ({
                               ? `4px solid ${planet.buttonColor}`
                               : "",
                           marginBottom: active === planet.name ? `4px` : "",
+                          color: active === planet.name ? "white" : "#838391",
                         }
+                      : screenWidth > 0
+                      ? { color: active === planet.name ? "white" : "#838391" }
                       : undefined
                   }
                   key={index}

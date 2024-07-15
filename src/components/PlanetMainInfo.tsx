@@ -1,14 +1,14 @@
-import source from "/assets/icon-source.svg";
 import PlanetType from "../Types";
+import source from "/assets/icon-source.svg";
 
-interface OverviewProps {
+interface SurfaceProps {
   planet: PlanetType;
-  activeOption: string;
-  handleActiveOption: (option: string) => void;
+  activeOption: "overview" | "geology" | "structure";
+  handleActiveOption: (option: "overview" | "geology" | "structure") => void;
   screenWidth: number;
 }
 
-const Overview: React.FC<OverviewProps> = ({
+const PlanetMainInfo: React.FC<SurfaceProps> = ({
   planet,
   activeOption,
   handleActiveOption,
@@ -24,7 +24,7 @@ const Overview: React.FC<OverviewProps> = ({
           src={planet.images.planet}
           alt="planet image"
           style={
-            screenWidth > 1024
+            screenWidth >= 1024
               ? {
                   width: planet.planetSize.desktop.width,
                   height: planet.planetSize.desktop.height,
@@ -43,6 +43,34 @@ const Overview: React.FC<OverviewProps> = ({
           }
           className="mb-[9.8rem] mt-[9.5rem] sm:mb-[13rem] sm:mt-[14.6rem]"
         />
+
+        {activeOption === "geology" ? (
+          <img
+            src={planet.images.geology}
+            alt="geology image"
+            style={
+              screenWidth >= 1024
+                ? {
+                    width: planet.geologySize.desktop.width,
+                    height: planet.geologySize.desktop.height,
+                  }
+                : screenWidth >= 640
+                ? {
+                    width: planet.geologySize.tablet.width,
+                    height: planet.geologySize.tablet.height,
+                  }
+                : screenWidth > 0
+                ? {
+                    width: planet.geologySize.mobile.width,
+                    height: planet.geologySize.mobile.height,
+                  }
+                : undefined
+            }
+            className="absolute top-[33rem] sm:top-[45rem] lg:top-[64rem]"
+          />
+        ) : (
+          ""
+        )}
       </div>
       <div
         className="sm:flex sm:items-center sm:gap-[6.9rem] lg:flex-col lg:w-[35%] lg:gap-[0rem] 
@@ -59,7 +87,7 @@ const Overview: React.FC<OverviewProps> = ({
             className="text-center text-[1.3rem] text-[#838391] leading-[2.2rem] mb-[3.2rem] 
           sm:text-start md:text-[1.5rem] lg:text-[2rem] lg:leading-[2.5rem]"
           >
-            {planet.overview.content}
+            {planet[activeOption].content}
           </p>
           <p
             className="flex items-center text-[#838391] text-[1.2rem] gap-2 mb-[2.8rem] 
@@ -68,7 +96,7 @@ const Overview: React.FC<OverviewProps> = ({
             Source :
             <a
               target="_blank"
-              href={planet.overview.source}
+              href={planet[activeOption].source}
               className="flex items-center gap-2 font-bold underline"
             >
               Wikipedia
@@ -78,22 +106,24 @@ const Overview: React.FC<OverviewProps> = ({
         </div>
         <div className="mini:hidden sm:block w-[50%] gap-[1.6rem] lg:w-[100%]">
           <div
-            style={
-              activeOption === "overview"
-                ? { backgroundColor: planet.buttonColor, border: "none" }
-                : undefined
-            }
             className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]
-            cursor-pointer"
+            cursor-pointer hover:bg-[#d8d8d8] duration-500"
             onClick={() => handleActiveOption("overview")}
           >
             <p className="text-[1.3rem] text-white font-bold tracking-[1.93px] lg:text-[1.5rem]">
-              <span className="mr-[1.7rem] text-[#838391] font-bold">01</span>
+              <span className="mr-[1.7rem] text-[1.3rem] text-[#838391] font-bold">
+                01
+              </span>
               OVERVIEW
             </p>
           </div>
 
           <div
+            style={
+              activeOption === "structure"
+                ? { backgroundColor: planet.buttonColor }
+                : undefined
+            }
             className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]
             cursor-pointer hover:bg-[#d8d8d8] duration-500"
             onClick={() => handleActiveOption("structure")}
@@ -107,9 +137,14 @@ const Overview: React.FC<OverviewProps> = ({
           </div>
 
           <div
+            style={
+              activeOption === "geology"
+                ? { backgroundColor: planet.buttonColor, border: "none" }
+                : undefined
+            }
             className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]
-            cursor-pointer hover:bg-[#d8d8d8] duration-500"
-            onClick={() => handleActiveOption("surface")}
+            cursor-pointer"
+            onClick={() => handleActiveOption("geology")}
           >
             <p className="text-[1.3rem] text-white font-bold tracking-[1.93px] lg:text-[1.5rem]">
               <span className="mr-[1.7rem] text-[1.3rem] text-[#838391] font-bold">
@@ -124,4 +159,4 @@ const Overview: React.FC<OverviewProps> = ({
   );
 };
 
-export default Overview;
+export default PlanetMainInfo;
