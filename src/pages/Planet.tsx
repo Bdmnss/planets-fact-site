@@ -1,29 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../data.json";
-import Overview from "./Overview";
-
-export interface PlanetData {
-  name: string;
-  overview: {
-    content: string;
-    source: string;
-  };
-  images: {
-    planet: string;
-  };
-  planetSize: {
-    mobile: {
-      width: string;
-      height: string;
-    };
-  };
-  buttonColor: string;
-  rotation: string;
-  revolution: string;
-  radius: string;
-  temperature: string;
-}
+import Overview from "../components/Overview";
+import Structure from "../components/Structure";
 
 interface PlanetProps {
   openBurger: boolean;
@@ -33,9 +12,7 @@ const Planet: React.FC<PlanetProps> = ({ openBurger }) => {
   const params = useParams<{ planet: string }>();
   const planetName = params.planet;
 
-  const planet = data.find(
-    (planetObj: PlanetData) => planetObj.name === planetName
-  );
+  const planet = data.find((planetObj) => planetObj.name === planetName);
 
   const [activeOption, setActiveOption] = useState("overview");
 
@@ -92,6 +69,8 @@ const Planet: React.FC<PlanetProps> = ({ openBurger }) => {
 
       {activeOption === "overview" && planet ? (
         <Overview planet={planet} />
+      ) : activeOption === "structure" && planet ? (
+        <Structure planet={planet} />
       ) : (
         ""
       )}

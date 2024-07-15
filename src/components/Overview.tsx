@@ -1,6 +1,26 @@
-import React from "react";
 import source from "/assets/icon-source.svg";
-import { PlanetData } from "./Planet";
+
+interface PlanetData {
+  name: string;
+  overview: {
+    content: string;
+    source: string;
+  };
+  images: {
+    planet: string;
+  };
+  planetSize: {
+    mobile: {
+      width: string;
+      height: string;
+    };
+  };
+  buttonColor: string;
+  rotation: string;
+  revolution: string;
+  radius: string;
+  temperature: string;
+}
 
 interface OverviewProps {
   planet: PlanetData;
