@@ -110,7 +110,7 @@ const Structure: React.FC<StructureProps> = ({
             className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]"
             onClick={() => handleActiveOption("overview")}
           >
-            <p className="text-[1.3rem] text-white font-bold tracking-[1.93px]">
+            <p className="text-[1.3rem] text-white font-bold tracking-[1.93px] lg:text-[1.5rem]">
               <span className="mr-[1.7rem] text-[1.3rem] text-[#838391] font-bold">
                 01
               </span>
@@ -127,7 +127,7 @@ const Structure: React.FC<StructureProps> = ({
             className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]"
             onClick={() => handleActiveOption("structure")}
           >
-            <p className="text-[1.3rem] text-white font-bold tracking-[1.93px]">
+            <p className="text-[1.3rem] text-white font-bold tracking-[1.93px] lg:text-[1.5rem]">
               <span className="mr-[1.7rem] text-[1.3rem] text-[#838391] font-bold">
                 02
               </span>
@@ -139,7 +139,7 @@ const Structure: React.FC<StructureProps> = ({
             className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]"
             onClick={() => handleActiveOption("surface")}
           >
-            <p className="text-[1.3rem] text-white font-bold tracking-[1.93px]">
+            <p className="text-[1.3rem] text-white font-bold tracking-[1.93px] lg:text-[1.5rem]">
               <span className="mr-[1.7rem] text-[1.3rem] text-[#838391] font-bold">
                 03
               </span>
