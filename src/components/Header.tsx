@@ -1,19 +1,22 @@
+import { Link } from "react-router-dom";
+import data from "../data.json";
+import { useState } from "react";
+import PlanetType from "../Types";
+
 type THeader = {
   openBurger: boolean;
   setOpenBurger: React.Dispatch<React.SetStateAction<boolean>>;
   screenWidth: number;
+  planet?: PlanetType;
 };
-
-import { Link } from "react-router-dom";
-import data from "../data.json";
-import { useState } from "react";
 
 const Header: React.FC<THeader> = ({
   openBurger,
   setOpenBurger,
   screenWidth,
+  planet,
 }) => {
-  const [active, setActive] = useState("Mercury");
+  const [active, setActive] = useState(planet?.name || "");
 
   return (
     <header>
