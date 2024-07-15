@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import data from "../data.json";
 import Overview from "../components/Overview";
 import Structure from "../components/Structure";
+import Surface from "../components/Surface";
 
 interface PlanetProps {
   openBurger: boolean;
@@ -71,6 +72,8 @@ const Planet: React.FC<PlanetProps> = ({ openBurger }) => {
         <Overview planet={planet} />
       ) : activeOption === "structure" && planet ? (
         <Structure planet={planet} />
+      ) : activeOption === "surface" && planet ? (
+        <Surface planet={planet} />
       ) : (
         ""
       )}
