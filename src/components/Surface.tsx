@@ -1,52 +1,8 @@
 import source from "/assets/icon-source.svg";
-
-interface PlanetData {
-  name: string;
-  geology: {
-    content: string;
-    source: string;
-  };
-  images: {
-    planet: string;
-    geology: string;
-  };
-  planetSize: {
-    mobile: {
-      width: string;
-      height: string;
-    };
-    tablet: {
-      width: string;
-      height: string;
-    };
-    desktop: {
-      width: string;
-      height: string;
-    };
-  };
-  geologySize: {
-    mobile: {
-      width: string;
-      height: string;
-    };
-    tablet: {
-      width: string;
-      height: string;
-    };
-    desktop: {
-      width: string;
-      height: string;
-    };
-  };
-  buttonColor: string;
-  rotation: string;
-  revolution: string;
-  radius: string;
-  temperature: string;
-}
+import PlanetType from "../Types";
 
 interface SurfaceProps {
-  planet: PlanetData;
+  planet: PlanetType;
   activeOption: string;
   handleActiveOption: (option: string) => void;
   screenWidth: number;

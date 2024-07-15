@@ -1,37 +1,8 @@
 import source from "/assets/icon-source.svg";
-
-interface PlanetData {
-  name: string;
-  overview: {
-    content: string;
-    source: string;
-  };
-  images: {
-    planet: string;
-  };
-  planetSize: {
-    mobile: {
-      width: string;
-      height: string;
-    };
-    tablet: {
-      width: string;
-      height: string;
-    };
-    desktop: {
-      width: string;
-      height: string;
-    };
-  };
-  buttonColor: string;
-  rotation: string;
-  revolution: string;
-  radius: string;
-  temperature: string;
-}
+import PlanetType from "../Types";
 
 interface OverviewProps {
-  planet: PlanetData;
+  planet: PlanetType;
   activeOption: string;
   handleActiveOption: (option: string) => void;
   screenWidth: number;

@@ -15,8 +15,6 @@ const Header: React.FC<THeader> = ({
 }) => {
   const [active, setActive] = useState("Mercury");
 
-  console.log(active);
-
   return (
     <header>
       <div
