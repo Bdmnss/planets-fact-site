@@ -10,7 +10,7 @@ type TBurgerIcon = {
 const BurgerIcon: React.FC<TBurgerIcon> = ({ openBurger, setOpenBurger }) => {
   return (
     <div className={`mt-[2.4rem] ${openBurger ? "block" : "hidden"}`}>
-      <ul>
+      <ul className="flex flex-col">
         {data.map((planet, index) => (
           <li key={index}>
             <Link to={`/${planet.name}`}>

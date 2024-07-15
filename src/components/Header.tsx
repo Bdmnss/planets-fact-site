@@ -32,8 +32,8 @@ const Header: React.FC<THeader> = ({
             THE PLANETS
           </h1>
         </div>
-        <div>
-          <ul className="mini:hidden sm:block">
+        <div className="mini:hidden sm:block">
+          <ul>
             <div
               className="flex items-center text-[#838391] text-[1.5rem] font-bold gap-[3.3rem] 
               mt-[3.9rem] lg:mt-[0] xl:text-[1.8rem] "
