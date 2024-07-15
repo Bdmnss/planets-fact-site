@@ -112,7 +112,8 @@ const Overview: React.FC<OverviewProps> = ({
                 ? { backgroundColor: planet.buttonColor, border: "none" }
                 : undefined
             }
-            className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]"
+            className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]
+            cursor-pointer"
             onClick={() => handleActiveOption("overview")}
           >
             <p className="text-[1.3rem] text-white font-bold tracking-[1.93px] lg:text-[1.5rem]">
@@ -122,7 +123,8 @@ const Overview: React.FC<OverviewProps> = ({
           </div>
 
           <div
-            className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]"
+            className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]
+            cursor-pointer hover:bg-[#d8d8d8] duration-500"
             onClick={() => handleActiveOption("structure")}
           >
             <p className="text-[1.3rem] text-white font-bold tracking-[1.93px] lg:text-[1.5rem]">
@@ -134,7 +136,8 @@ const Overview: React.FC<OverviewProps> = ({
           </div>
 
           <div
-            className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]"
+            className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]
+            cursor-pointer hover:bg-[#d8d8d8] duration-500"
             onClick={() => handleActiveOption("surface")}
           >
             <p className="text-[1.3rem] text-white font-bold tracking-[1.93px] lg:text-[1.5rem]">

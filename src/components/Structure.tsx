@@ -107,7 +107,8 @@ const Structure: React.FC<StructureProps> = ({
         </div>
         <div className="mini:hidden sm:block w-[50%] gap-[1.6rem] lg:w-[100%]">
           <div
-            className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]"
+            className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]
+            cursor-pointer hover:bg-[#d8d8d8] duration-500"
             onClick={() => handleActiveOption("overview")}
           >
             <p className="text-[1.3rem] text-white font-bold tracking-[1.93px] lg:text-[1.5rem]">
@@ -124,7 +125,8 @@ const Structure: React.FC<StructureProps> = ({
                 ? { backgroundColor: planet.buttonColor, border: "none" }
                 : undefined
             }
-            className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]"
+            className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]
+            cursor-pointer"
             onClick={() => handleActiveOption("structure")}
           >
             <p className="text-[1.3rem] text-white font-bold tracking-[1.93px] lg:text-[1.5rem]">
@@ -136,7 +138,8 @@ const Structure: React.FC<StructureProps> = ({
           </div>
 
           <div
-            className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]"
+            className="pl-[2rem] py-[1rem] border-[1px] border-[#838391] mb-[1.6rem] lg:py-[1.3rem]
+            cursor-pointer hover:bg-[#d8d8d8] duration-500"
             onClick={() => handleActiveOption("surface")}
           >
             <p className="text-[1.3rem] text-white font-bold tracking-[1.93px] lg:text-[1.5rem]">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../data.json";
 import Overview from "../components/Overview";
@@ -8,9 +8,10 @@ import PlanetTabs from "../components/PlanetTabs";
 
 interface PlanetProps {
   openBurger: boolean;
+  screenWidth: number;
 }
 
-const Planet: React.FC<PlanetProps> = ({ openBurger }) => {
+const Planet: React.FC<PlanetProps> = ({ openBurger, screenWidth }) => {
   const params = useParams<{ planet: string }>();
   const planetName = params.planet;
 
@@ -21,30 +22,6 @@ const Planet: React.FC<PlanetProps> = ({ openBurger }) => {
   const handleActiveOption = (option: string) => {
     setActiveOption(option);
   };
-
-  const useWindowSize = () => {
-    const [windowSize, setWindowsSize] = useState({
-      screenWidth: 1248,
-      screenHeight: 0,
-    });
-
-    useEffect(() => {
-      function handleResize() {
-        setWindowsSize({
-          screenWidth: window.innerWidth,
-          screenHeight: window.innerHeight,
-        });
-      }
-      window.addEventListener("resize", handleResize);
-
-      handleResize();
-
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-    return windowSize;
-  };
-
-  const screenWidth = useWindowSize().screenWidth;
 
   return (
     <div className={`${openBurger ? "hidden" : "block"} pb-[5rem]`}>
