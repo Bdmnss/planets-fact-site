@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        stars: "url('./assets/background-stars.svg')",
+        stars: "url('assets/background-stars.svg')",
       },
       fontFamily: {
         antonio: ["Antonio", "sans-serif"],

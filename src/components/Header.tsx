@@ -1,25 +1,28 @@
-import burgerIcon from "../assets/icon-hamburger.svg";
-
 type THeader = {
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  openBurger: boolean;
+  setOpenBurger: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Header: React.FC<THeader> = ({ open, setOpen }) => {
+const Header: React.FC<THeader> = ({ openBurger, setOpenBurger }) => {
   return (
     <header>
       <div
         className="flex justify-between items-center py-[1.6rem] px-[2.4rem] border-b-[1px]
-        border-[gray]"
+        border-[#38384F]"
       >
         <h1 className="font-antonio text-[2.8rem] text-white font-medium tracking-[-1.05px]">
           THE PLANETS
         </h1>
-        <img
-          src={burgerIcon}
-          alt="burger icon"
-          onClick={() => setOpen(!open)}
-        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="17"
+          onClick={() => setOpenBurger(!openBurger)}
+        >
+          <g fill={`${!openBurger ? "#fff" : "#38384F"}`}>
+            <path d="M0 0h24v3H0zM0 7h24v3H0zM0 14h24v3H0z" />
+          </g>
+        </svg>
       </div>
     </header>
   );
