@@ -21,7 +21,15 @@ const PlanetMainInfo: React.FC<SurfaceProps> = ({
     >
       <div className="lg:w-[65%] flex justify-center">
         <img
-          src={planet.images.planet}
+          src={
+            activeOption === "overview"
+              ? planet.images.planet
+              : activeOption === "structure"
+              ? planet.images.internal
+              : activeOption === "geology"
+              ? planet.images.planet
+              : ""
+          }
           alt="planet image"
           style={
             screenWidth >= 1024
